@@ -14,11 +14,11 @@
   <% @tasks.each do |task| %>
       <% @categories.each do |category| %>
         <% if task.category_id == category.id %>
-          <%if task.deadline.localtime.to_date < DateTime.current.localtime.to_date %>
+          <%if task.deadline.to_date < DateTime.current.to_date %>
 
             <div class="card text-black bg-danger mb-3 w-100" style="max-width: 18rem;">
               <%# <%= link_to task.deadline.strftime("%l:%M %p"), task, class:"card-header" %>
-              <div class="card-header"><b>Over Due | <%= task.deadline.localtime.strftime("%B %d, %Y")%></b></div>
+              <div class="card-header"><b>Over Due | <%= task.deadline.strftime("%B %d, %Y")%></b></div>
               <div class="card-body">
                 <div class="card-title"><%= task.title%></div>
                 <p class="card-text"><%= task.body%></p>
@@ -27,9 +27,9 @@
                 </div>
               </div>
             </div>
-          <% elsif  task.deadline.localtime.to_date == DateTime.current.localtime.to_date %>
+          <% elsif  task.deadline.to_date == DateTime.current.to_date %>
                      <div class="card text-black bg-warning mb-3 w-100" style="max-width: 18rem;">
-              <div class="card-header"><b>Due Today | <%= task.deadline.localtime.strftime("%l:%M %p")%></b></div>
+              <div class="card-header"><b>Due Today | <%= task.deadline.strftime("%l:%M %p")%></b></div>
               <div class="card-body">
                 <div class="card-title"><%= task.title%></div>
                 <p class="card-text"><%= task.body%></p>
@@ -38,9 +38,9 @@
                 </div>
               </div>
             </div>
-           <% elsif  task.deadline.localtime.to_date - DateTime.current.localtime.to_date == 1 %>
+           <% elsif  task.deadline.to_date - DateTime.current.to_date == 1 %>
               <div class="card text-black bg-primary mb-3 w-100" style="max-width: 18rem;">
-                <div class="card-header"><b>Tomorrow | <%= task.deadline.localtime.strftime("%l:%M %p")%></b></div>
+                <div class="card-header"><b>Tomorrow | <%= task.deadline.strftime("%l:%M %p")%></b></div>
                 <div class="card-body">
                   <div class="card-title"><%= task.title%></div>
                   <p class="card-text"><%= task.body%></p>
@@ -49,7 +49,7 @@
                   </div>
                 </div>
             </div>
-          <% elsif  task.deadline.localtime.to_date > DateTime.current.localtime.to_date %>
+          <% elsif  task.deadline.to_date > DateTime.current.to_date %>
                 <div class="card text-black bg-success mb-3 w-100" style="max-width: 18rem;">
                 <div class="card-header"><b><%= task.deadline.localtime.strftime("%B %d, %Y")%></b></div>
                 <div class="card-body">
