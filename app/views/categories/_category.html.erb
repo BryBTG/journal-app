@@ -1,0 +1,37 @@
+
+
+<div id="<%= dom_id category %>">
+
+    <tbody class="table-group-divider">
+    <tr>
+
+      <td><%= category.name %></td>
+      <td><%= category.description %></td>
+      <td>
+        <%= link_to "Show", category, class: "btn btn-primary" %>
+        <%= link_to "Edit", edit_category_path(category), class: "btn btn-success" %>
+        <%# <%= link_to "Delete", category, class: "btn btn-danger", method: :delete   %>
+      </td>
+    </tr>
+  </tbody>
+
+
+</div>
+
+  <%# <h2> %>
+    <%# <strong>Category:</strong> %>
+    <%# <%= category.name %>
+  <%# </h2> %>
+<%#
+  <p> %>
+    <%# <strong>Description:</strong> %>
+    <%# <%= category.description %>
+  <%# </p> %>
+
+  <%# <% category.tasks.each do |task| %>
+    <%# <p> %>
+    <%# <%= task.title %>
+    <%# <%= link_to "View Task", task %>
+  <%# </p>
+  <%# <% end %>
+

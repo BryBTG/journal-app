@@ -1,0 +1,39 @@
+
+
+<h3><%= @category.name %></h3>
+<br>
+
+<h5><%= @category.description %></h5>
+<br/>
+<div class="text-end">
+  <%= button_to "Delete Category", @category, :onclick => "return confirm('Are you sure to delete this category and its tasks?')", class: "btn btn-danger", method: :delete %>
+</div>
+<div>
+
+  <% @category.tasks.each do |task| %>
+
+    <table class="table table-responsive table-hover text-center ">
+      <thead>
+        <tr>
+          <th scope="col">Tasks</th>
+          <th scope="col">Actions</th>
+        </tr>
+      </thead>
+        <tbody class="table-group-divider">
+          <tr>
+
+            <td><%= task.title %></td>
+            <td><%= link_to "View", task, class: "btn btn-primary"%></td>
+
+          </tr>
+      </tbody>
+    </table>
+<% end %>
+
+  <%# <%= link_to "Edit this category", edit_category_path(@category) %>
+  <%# <%= link_to "Back to categories", categories_path %>
+
+  <%# <%= button_to "Destroy this category", @category, method: :delete %>
+
+
+</div>

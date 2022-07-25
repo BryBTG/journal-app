@@ -1,0 +1,35 @@
+
+<div id="<%= dom_id task %>">
+
+  <p>
+    <strong>Title:</strong>
+    <%= task.title %>
+  </p>
+
+  <p>
+    <strong>Category:</strong>
+    <%= link_to task.category.name, task.category %>
+  </p>
+
+  <p>
+    <strong>Body:</strong>
+    <%= task.body %>
+  </p>
+
+  <p>
+    <strong>Deadline:</strong>
+    <%= task.deadline %>
+  </p>
+
+
+
+</div>
+</div>
+
+<div class="card">
+  <h5 class="card-header"><%= task.deadline.strftime("%B %d, %Y")%> | <%= task.deadline.strftime("%l:%M %p")%></h5>
+  <div class="card-body">
+    <h5 class="card-title"><%= task.title %></h5>
+    <p class="card-text"><%= task.body %></p>
+
+</div>

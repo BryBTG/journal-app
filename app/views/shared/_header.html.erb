@@ -1,0 +1,31 @@
+<header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
+    <a href="/" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
+        <img class="d-block mx-auto mb-4" src="https://media.discordapp.net/attachments/996736922078675024/1000934887198568468/BryBTG-Black.png" alt="" width="40" height="40">
+    </a>
+
+    <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+    <li><%= link_to "Home", home_index_path, class: "nav-link px-2 link-secondary" %></li>
+    <li><%= link_to "Tasks", tasks_path, class:"nav-link px-2 link-dark"%></li>
+    <li><%= link_to "Categories", categories_path, class:"nav-link px-2 link-dark"%></li>
+
+
+
+
+
+    </ul>
+
+    <div class="col-md-3 text-end">
+
+        <% if current_user.present?%>
+            <%= current_user.email %>
+            <%= link_to "Sign Out", destroy_user_session_path, :onclick => "return confirm('Are you sure you want to sign out?')", method: :delete, class: "btn btn-danger" %>
+        <% else %>
+            <%= link_to "Log In", new_user_session_path, class: "btn btn-outline-primary me-2" %>
+            <%= link_to "Sign Up", new_user_registration_path, class: "btn btn-primary" %>
+        <% end %>
+    </div>
+
+</header>
+
+<%# <p class="notice"><%= notice %>
+<%# <p class="alert"><%= alert %>
