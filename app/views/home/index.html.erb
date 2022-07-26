@@ -3,68 +3,65 @@
 
 
 
-<% if current_user %>
-<div class="d-flex align-items-center">
+  <% if current_user %>
+    <div class="d-flex align-items-center">
 
-  <h2 class="flex-grow-1">Dashboard</h2>
-  <%= link_to "New Category", new_category_path, class: "btn btn-secondary me-2" %>
-  <%= link_to "New task", new_task_path, class: "btn btn-success" %>
+      <h2 class="flex-grow-1">Dashboard</h2>
+      <%= link_to "New Category", new_category_path, class: "btn btn-secondary me-2" %>
+      <%= link_to "New task", new_task_path, class: "btn btn-success" %>
 
-</div>
-<br/>
-<div class="d-flex justify-content-around flex-wrap">
+    </div>
+    <br/>
+    <div class="d-flex justify-content-around flex-wrap">
 
-  <% if user_signed_in? %>
-  <% @tasks.each do |task| %>
-      <% @categories.each do |category| %>
-        <% if task.category_id == category.id %>
-          <%if task.deadline.localtime.to_date < DateTime.current.localtime.to_date %>
+      <% if user_signed_in? %>
 
-            <div class="card text-black bg-danger mb-3 w-100" style="max-width: 18rem;">
-              <%# <%= link_to task.deadline.strftime("%l:%M %p"), task, class:"card-header" %>
-              <div class="card-header"><b>Over Due</b></div>
-              <div class="card-body">
-                <div class="card-title"><%= task.title%></div>
-                <p class="card-text"><%= task.body%></p>
-                <div class="d-flex align-items-end flex-column">
-                  <%= link_to "Show this task", task, class: "btn btn-primary" %>
-                </div>
-              </div>
-            </div>
-          <% elsif  task.deadline.localtime.to_date == DateTime.current.localtime.to_date %>
-                     <div class="card text-black bg-warning mb-3 w-100" style="max-width: 18rem;">
-              <div class="card-header"><b>Due Today</b></div>
-              <div class="card-body">
-                <div class="card-title"><%= task.title%></div>
-                <p class="card-text"><%= task.body%></p>
-                <div class="d-flex align-items-end flex-column">
-                  <%= link_to "Show this task", task, class: "btn btn-primary" %>
-                </div>
-              </div>
-            </div>
-          <% elsif  task.deadline.localtime.to_date - DateTime.current.localtime.to_date == 1 %>
-              <div class="card text-black bg-primary mb-3 w-100" style="max-width: 18rem;">
-                <div class="card-header"><b>Tomorrow</b></div>
-                <div class="card-body">
-                  <div class="card-title"><%= task.title%></div>
-                  <p class="card-text"><%= task.body%></p>
-                  <div class="d-flex align-items-end flex-column">
-                    <%= link_to "Show this task", task, class: "btn btn-primary" %>
+        <% @tasks.each do |task| %>
+          <% @categories.each do |category| %>
+            <% if task.category_id == category.id %>
+              <%if task.deadline.localtime.to_date < DateTime.current.localtime.to_date %>
+
+                <div class="card text-black bg-danger mb-3 w-100" style="max-width: 18rem;">
+                  <%# <%= link_to task.deadline.strftime("%l:%M %p"), task, class:"card-header" %>
+                  <div class="card-header"><b>Over Due</b></div>
+                  <div class="card-body">
+                    <div class="card-title"><%= task.title%></div>
+                    <p class="card-text"><%= task.body%></p>
+                    <div class="d-flex align-items-end flex-column">
+                      <%= link_to "Show this task", task, class: "btn btn-primary" %>
+                    </div>
                   </div>
                 </div>
-            </div>
+              <% elsif  task.deadline.localtime.to_date == DateTime.current.localtime.to_date %>
+                        <div class="card text-black bg-warning mb-3 w-100" style="max-width: 18rem;">
+                  <div class="card-header"><b>Due Today</b></div>
+                  <div class="card-body">
+                    <div class="card-title"><%= task.title%></div>
+                    <p class="card-text"><%= task.body%></p>
+                    <div class="d-flex align-items-end flex-column">
+                      <%= link_to "Show this task", task, class: "btn btn-primary" %>
+                    </div>
+                  </div>
+                </div>
+              <% elsif  task.deadline.localtime.to_date - DateTime.current.localtime.to_date == 1 %>
+                  <div class="card text-black bg-primary mb-3 w-100" style="max-width: 18rem;">
+                    <div class="card-header"><b>Tomorrow</b></div>
+                    <div class="card-body">
+                      <div class="card-title"><%= task.title%></div>
+                      <p class="card-text"><%= task.body%></p>
+                      <div class="d-flex align-items-end flex-column">
+                        <%= link_to "Show this task", task, class: "btn btn-primary" %>
+                      </div>
+                    </div>
+                </div>
 
 
+              <% end %>
+
+            <% end %>
           <% end %>
-
-        <% end %>
+        <%end%>
       <% end %>
-    <%end%>
-  <% end %>
-
-  <div>
-
-  </div>
   </div>
 
 </div>

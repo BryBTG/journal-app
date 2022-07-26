@@ -97,6 +97,7 @@ GEM
       responders
       warden (~> 1.2.3)
     digest (3.1.0)
+    erb-formatter (0.3.0)
     erubi (1.10.0)
     ffi (1.15.5)
     font-awesome-sass (6.1.1)
@@ -240,6 +241,7 @@ DEPENDENCIES
   cssbundling-rails
   debug
   devise (~> 4.8, >= 4.8.1)
+  erb-formatter
   font-awesome-sass (~> 6.1.1)
   importmap-rails
   jbuilder
