@@ -10,15 +10,17 @@
 </div>
 <div>
 
-  <% @category.tasks.each do |task| %>
+
 
     <table class="table table-responsive table-hover text-center ">
       <thead>
         <tr>
+
           <th scope="col">Tasks</th>
           <th scope="col">Actions</th>
         </tr>
       </thead>
+       <% @category.tasks.each do |task| %>
         <tbody class="table-group-divider">
           <tr>
 
@@ -27,8 +29,9 @@
 
           </tr>
       </tbody>
+      <% end %>
     </table>
-<% end %>
+
 
   <%# <%= link_to "Edit this category", edit_category_path(@category) %>
   <%# <%= link_to "Back to categories", categories_path %>
